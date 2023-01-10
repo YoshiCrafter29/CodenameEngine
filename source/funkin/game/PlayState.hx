@@ -1275,13 +1275,6 @@ class PlayState extends MusicBeatState
 		if (controls.RESET)
 			health = 0;
 
-		// CHEAT = brandon's a pussy
-		if (controls.CHEAT)
-		{
-			health += 1;
-			trace("User is cheating!");
-		}
-
 		if (health <= 0 && canDie)
 			gameOver();
 
@@ -1385,13 +1378,11 @@ class PlayState extends MusicBeatState
 
 		if (SONG.validScore)
 		{
-			#if !switch
 			Highscore.saveScore(SONG.song, {
 				score: songScore,
 				misses: misses,
 				accuracy: accuracy
 			}, difficulty);
-			#end
 		}
 
 		startEndCutscene();
